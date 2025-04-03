@@ -2,3 +2,6 @@ litellm
 python-dotenv
 networkx
 matplotlib
+sentence-transformers
+scikit-learn
+numpy
