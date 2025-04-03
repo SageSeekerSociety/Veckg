@@ -53,6 +53,8 @@ def build_knowledge_graph(text):
     system_prompt = """
     作为知识图谱构建专家，请从文本中提取实体及其关系，并输出以下结构的JSON：
     {
+        "theme": 文本的主题,
+        "title": 知识图谱的标题,
         "abstract": 文本摘要,
         "aspects": 文本的各个角度，即可以从文本的结构来分析，也可以根据内容来判断,
         "reader": 对文本的读者的分析,
@@ -80,6 +82,8 @@ def build_knowledge_graph(text):
                 "schema": {
                     "type": "object",
                     "properties": {
+                        "theme": {"type": "string"},
+                        "title": {"type": "string"},
                         "abstract": {"type": "string"},
                         "aspects": {"type": "array", "items": {"type": "string"}},
                         "reader": {"type": "string"},
@@ -168,7 +172,7 @@ def draw_knowledge_graph(graph_data):
     edge_labels = nx.get_edge_attributes(G, 'relation')
     nx.draw_networkx_edge_labels(G, pos, edge_labels, font_size=6)
     
-    plt.title("知识图谱可视化", fontsize=16)
+    plt.title(graph_data['title'], fontsize=16)
     plt.axis('off')
     plt.tight_layout()
     plt.show()
