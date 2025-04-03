@@ -20,7 +20,6 @@ def build_knowledge_graph(text):
     
     try:
         response = completion(
-
             model="deepseek/deepseek-chat",
             messages=[
                 {"role": "system", "content": system_prompt},
@@ -37,7 +36,13 @@ def build_knowledge_graph(text):
         print(f"Error: {str(e)}")
         return None
 
-# 使用示例
-text = "苹果公司由史蒂夫·乔布斯创立，总部位于加利福尼亚州。iOS是苹果公司开发的移动操作系统。"
-graph = build_knowledge_graph(text)
-print(json.dumps(graph, indent=2, ensure_ascii=False))
+# 从文件读取文本
+try:
+    with open('document.txt', 'r', encoding='utf-8') as file:
+        text = file.read()
+    graph = build_knowledge_graph(text)
+    print(json.dumps(graph, indent=2, ensure_ascii=False))
+except FileNotFoundError:
+    print("Error: document.txt not found")
+except Exception as e:
+    print(f"Error reading file: {str(e)}")
