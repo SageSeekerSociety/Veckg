@@ -205,7 +205,7 @@ def draw_knowledge_graph(graph_data, use_semantic_layout=False):
     plt.title(graph_data['title'], fontsize=16)
     plt.axis('off')
     plt.tight_layout()
-    plt.show()
+    plt.savefig('graph-2d.jpg', dpi=1000, format='jpg')
 
 def draw_knowledge_graph_3d(graph_data):
     if not graph_data:
@@ -299,7 +299,7 @@ def draw_knowledge_graph_3d(graph_data):
     ax.legend(handles=legend_elements, loc='upper right')
     
     plt.tight_layout()
-    plt.show()
+    plt.savefig('graph-3d.jpg', dpi=1000, format='jpg')
 
 # 从文件读取文本
 try:
@@ -307,7 +307,9 @@ try:
     with open('document.txt', 'r', encoding='utf-8') as file:
         text = file.read()
     graph = build_knowledge_graph(text)
-    print(json.dumps(graph, indent=2, ensure_ascii=False))
+    with open('graph.json', 'w', encoding='utf-8') as file:
+        json.dump(graph, file, indent=2, ensure_ascii=False)
+    # graph = json.load(open('graph.json', 'r', encoding='utf-8'))
     draw_knowledge_graph(graph, use_semantic_layout=True)  # 2D visualization
     draw_knowledge_graph_3d(graph)  # 3D visualization
 except FileNotFoundError:

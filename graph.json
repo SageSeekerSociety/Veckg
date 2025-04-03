@@ -1,144 +1,137 @@
 {
-  "theme": "教育项目立项",
-  "title": "中国人民大学“求是学术”品牌研究项目立项工作",
-  "abstract": "本文档详细介绍了2025年中国人民大学“求是学术”品牌研究项目的立项工作，包括项目申报、填报申报材料、初评推荐、书院评审推荐、学校复核立项及项目运行管理的具体安排和要求。",
+  "theme": "《红楼梦》第三回情节",
+  "title": "林黛玉进贾府",
+  "abstract": "本回描述了林黛玉初入贾府的情景，包括与贾母、王熙凤、贾宝玉等人的初次见面，以及贾府的环境和人物关系。",
   "aspects": [
-    "项目申报模式",
-    "填报申报材料流程",
-    "初评推荐机制",
-    "书院评审推荐过程",
-    "学校复核立项标准",
-    "项目运行管理规定"
+    "人物关系",
+    "贾府环境",
+    "初次见面",
+    "情感交流"
   ],
-  "reader": "中国人民大学的本科生、研究生、教师及教学管理人员",
-  "purpose": "帮助读者了解2025年“求是学术”品牌研究项目的立项流程和要求，促进学术训练项目的顺利开展。",
+  "reader": "对《红楼梦》感兴趣的读者，特别是对人物关系和情感交流感兴趣的读者。",
+  "purpose": "帮助读者理解《红楼梦》中的人物关系和情感交流，以及贾府的环境。",
   "purposes": [
-    "指导本科生和研究生如何参与项目申报",
-    "帮助教师了解如何指导学生团队",
-    "为教学管理人员提供项目管理的参考"
+    "理解林黛玉与贾府人物的初次见面",
+    "了解贾府的环境和人物关系",
+    "感受人物之间的情感交流"
   ],
   "nodes": [
     {
       "id": 1,
-      "name": "中国人民大学",
-      "type": "组织"
+      "name": "林黛玉",
+      "type": "人物"
     },
     {
       "id": 2,
-      "name": "求是学术",
-      "type": "概念"
+      "name": "贾母",
+      "type": "人物"
     },
     {
       "id": 3,
-      "name": "教育强国建设规划纲要",
-      "type": "概念"
+      "name": "王熙凤",
+      "type": "人物"
     },
     {
       "id": 4,
-      "name": "十四五时期教育强国推进工程实施方案",
-      "type": "概念"
+      "name": "贾宝玉",
+      "type": "人物"
     },
     {
       "id": 5,
-      "name": "国务院办公厅",
-      "type": "组织"
+      "name": "贾政",
+      "type": "人物"
     },
     {
       "id": 6,
-      "name": "人人学术五训信息平台",
-      "type": "概念"
+      "name": "林如海",
+      "type": "人物"
     },
     {
       "id": 7,
-      "name": "本科生",
-      "type": "人物"
+      "name": "贾府",
+      "type": "地点"
     },
     {
       "id": 8,
-      "name": "研究生",
-      "type": "人物"
+      "name": "金陵应天府",
+      "type": "地点"
     },
     {
       "id": 9,
-      "name": "教师",
-      "type": "人物"
-    },
-    {
-      "id": 10,
-      "name": "教务处",
-      "type": "组织"
-    },
-    {
-      "id": 11,
-      "name": "书院建设与管理中心",
-      "type": "组织"
+      "name": "《红楼梦》",
+      "type": "概念"
     }
   ],
   "edges": [
     {
       "source": 1,
       "target": 2,
-      "relation": "设立"
+      "relation": "拜见外祖母"
+    },
+    {
+      "source": 1,
+      "target": 3,
+      "relation": "初次见面"
+    },
+    {
+      "source": 1,
+      "target": 4,
+      "relation": "初次见面"
+    },
+    {
+      "source": 1,
+      "target": 5,
+      "relation": "拜见舅舅"
     },
     {
       "source": 1,
       "target": 6,
-      "relation": "推出"
+      "relation": "父亲"
+    },
+    {
+      "source": 1,
+      "target": 7,
+      "relation": "进入"
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "relation": "介绍"
+    },
+    {
+      "source": 2,
+      "target": 4,
+      "relation": "宠爱"
     },
     {
       "source": 3,
-      "target": 1,
-      "relation": "指导"
+      "target": 7,
+      "relation": "管理"
     },
     {
       "source": 4,
-      "target": 1,
-      "relation": "指导"
+      "target": 7,
+      "relation": "居住"
     },
     {
       "source": 5,
-      "target": 1,
-      "relation": "发布"
-    },
-    {
-      "source": 2,
       "target": 7,
-      "relation": "面向"
-    },
-    {
-      "source": 2,
-      "target": 8,
-      "relation": "面向"
+      "relation": "居住"
     },
     {
       "source": 6,
-      "target": 7,
-      "relation": "服务"
+      "target": 1,
+      "relation": "送女进京"
     },
     {
-      "source": 6,
+      "source": 7,
       "target": 8,
-      "relation": "服务"
+      "relation": "位于"
     },
     {
       "source": 9,
-      "target": 7,
-      "relation": "指导"
-    },
-    {
-      "source": 9,
-      "target": 8,
-      "relation": "指导"
-    },
-    {
-      "source": 10,
       "target": 1,
-      "relation": "管理"
-    },
-    {
-      "source": 11,
-      "target": 1,
-      "relation": "管理"
+      "relation": "描述"
     }
   ]
 }
