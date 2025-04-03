@@ -130,7 +130,7 @@ def build_knowledge_graph(text):
         print(f"Error: {str(e)}")
         return None
 
-def draw_knowledge_graph(graph_data):
+def draw_knowledge_graph(graph_data, use_semantic_layout=False):
     if not graph_data:
         print("No graph data to visualize")
         return
@@ -149,8 +149,26 @@ def draw_knowledge_graph(graph_data):
     # Set up the plot
     plt.figure(figsize=(15, 10))
     
-    # Use spring layout for better node positioning
-    pos = nx.spring_layout(G, k=1, iterations=50)
+    # Choose layout method
+    if use_semantic_layout:
+        # Get node names for embedding
+        node_names = [G.nodes[node]['name'] for node in G.nodes()]
+        
+        # Load the sentence transformer model
+        model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
+        
+        # Generate embeddings for node names
+        embeddings = model.encode(node_names)
+        
+        # Apply PCA to reduce to 2D
+        pca = PCA(n_components=2)
+        positions_2d = pca.fit_transform(embeddings)
+        
+        # Create a dictionary of node positions
+        pos = {node: positions_2d[i] for i, node in enumerate(G.nodes())}
+    else:
+        # Use spring layout for better node positioning
+        pos = nx.spring_layout(G, k=1, iterations=50)
     
     # Draw nodes with different colors based on type
     node_colors = []
@@ -293,7 +311,7 @@ try:
         text = file.read()
     graph = build_knowledge_graph(text)
     print(json.dumps(graph, indent=2, ensure_ascii=False))
-    draw_knowledge_graph(graph)  # 2D visualization
+    draw_knowledge_graph(graph, use_semantic_layout=True)  # 2D visualization
     draw_knowledge_graph_3d(graph)  # 3D visualization
 except FileNotFoundError:
     print("Error: document.txt not found")
