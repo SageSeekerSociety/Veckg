@@ -1,4 +1,3 @@
-import litellm
 from litellm import completion
 import json
 from dotenv import load_dotenv
@@ -10,8 +9,6 @@ import os
 import warnings
 from sentence_transformers import SentenceTransformer
 from sklearn.decomposition import PCA
-import numpy as np
-from mpl_toolkits.mplot3d import Axes3D
 from matplotlib.patches import Patch
 load_dotenv()
 
@@ -155,7 +152,7 @@ def draw_knowledge_graph(graph_data, use_semantic_layout=False):
         node_names = [G.nodes[node]['name'] for node in G.nodes()]
         
         # Load the sentence transformer model
-        model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
+        model = SentenceTransformer('./model')
         
         # Generate embeddings for node names
         embeddings = model.encode(node_names)
@@ -230,7 +227,7 @@ def draw_knowledge_graph_3d(graph_data):
     node_names = [G.nodes[node]['name'] for node in G.nodes()]
     
     # Load the sentence transformer model
-    model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
+    model = SentenceTransformer('./model')
     
     # Generate embeddings for node names
     embeddings = model.encode(node_names)
