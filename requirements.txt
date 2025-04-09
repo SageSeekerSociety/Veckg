@@ -5,3 +5,4 @@ matplotlib
 sentence-transformers
 scikit-learn
 numpy
+accelerate
